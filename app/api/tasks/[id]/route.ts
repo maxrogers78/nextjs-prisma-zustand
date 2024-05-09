@@ -76,8 +76,6 @@ export const PUT = async (req: Request) => {
         { status: 400 },
       );
 
-    console.log(id, title, description, priority);
-
     const updatedTask = await prisma.task.update({
       where: {
         id,

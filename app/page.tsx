@@ -1,19 +1,9 @@
 'use client';
-import Loader from '@/components/loader';
-import TaskCard from '@/components/task-card';
-import { useTaskStore } from '@/store/taskStore';
-import { Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-
-const getTasks = async (): Promise<Task[]> => {
-  const response = await fetch('/api/tasks', {
-    method: 'GET',
-    headers: { 'Content-Type': 'application/json' },
-  });
-  const { tasks } = await response.json();
-  return tasks;
-};
+import { useTaskStore } from '@/store/taskStore';
+import Loader from '@/components/loader';
+import TaskCard from '@/components/task-card';
 
 export default function HomePage() {
   const { tasks, isFetching, getTasks } = useTaskStore();
