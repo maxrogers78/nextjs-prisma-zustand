@@ -1,5 +1,5 @@
 declare interface Task {
-  id?: number;
+  id?: string;
   title: string;
   description?: string;
   priority: string;
@@ -12,11 +12,11 @@ declare interface TaskStore {
   isFetching: boolean;
   isLoading: boolean;
   getTasks: () => void;
-  getSingleTask: (id: number) => Promise<Task>;
+  getSingleTask: (id: string) => Promise<Task>;
   createTask: (task: Task) => Promise<void>;
-  deleteTask: (id: number) => Promise<void>;
-  completeTask: (id: number) => Promise<void>;
-  markAsPending: (id: number) => Promise<void>;
+  deleteTask: (id: string) => Promise<void>;
+  completeTask: (id: string) => Promise<void>;
+  markAsPending: (id: string) => Promise<void>;
   editTask: (task: Task) => Promise<void>;
 }
 

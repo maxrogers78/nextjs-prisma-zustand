@@ -16,7 +16,7 @@ export default function EditTaskPage() {
     if (!id) return;
 
     const getData = async () => {
-      const fetchedTask = await getSingleTask(parseInt(id));
+      const fetchedTask = await getSingleTask(id);
 
       if (!fetchedTask) {
         toast.error('Task not found');

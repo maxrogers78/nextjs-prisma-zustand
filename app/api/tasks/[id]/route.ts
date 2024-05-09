@@ -16,7 +16,7 @@ export const GET = async (
 
     const task = await prisma.task.findUnique({
       where: {
-        id: parseInt(id),
+        id,
       },
     });
 
@@ -47,7 +47,7 @@ export const DELETE = async (
 
     const deletedTask = await prisma.task.delete({
       where: {
-        id: parseInt(id),
+        id,
       },
     });
 
@@ -80,7 +80,7 @@ export const PUT = async (req: Request) => {
 
     const updatedTask = await prisma.task.update({
       where: {
-        id: parseInt(id),
+        id,
       },
       data: {
         title,

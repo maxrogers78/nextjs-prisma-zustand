@@ -14,7 +14,7 @@ const useTaskStore = create<TaskStore>((set) => ({
     const { tasks } = await response.json();
     set({ tasks, isFetching: false });
   },
-  getSingleTask: async (id: number) => {
+  getSingleTask: async (id: string) => {
     set({ isFetching: true });
     const response = await fetch(`/api/tasks/${id}`, {
       method: 'GET',
@@ -38,7 +38,7 @@ const useTaskStore = create<TaskStore>((set) => ({
     }));
     toast.success('Task created successfully');
   },
-  deleteTask: async (id: number) => {
+  deleteTask: async (id: string) => {
     set({ isLoading: true });
     const response = await fetch(`/api/tasks/${id}`, {
       method: 'DELETE',
@@ -51,7 +51,7 @@ const useTaskStore = create<TaskStore>((set) => ({
     }));
     toast.success('Task deleted successfully');
   },
-  completeTask: async (id: number) => {
+  completeTask: async (id: string) => {
     set({ isLoading: true });
     const response = await fetch(`/api/tasks/${id}/complete`, {
       method: 'PUT',
@@ -66,7 +66,7 @@ const useTaskStore = create<TaskStore>((set) => ({
     }));
     toast.success('Task completed successfully');
   },
-  markAsPending: async (id: number) => {
+  markAsPending: async (id: string) => {
     set({ isLoading: true });
     const response = await fetch(`/api/tasks/${id}/pending`, {
       method: 'PUT',

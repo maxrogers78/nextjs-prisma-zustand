@@ -9,7 +9,7 @@ export const PUT = async (
     const { id } = context.params;
     const updatedTask = await prisma.task.update({
       where: {
-        id: parseInt(id),
+        id,
       },
       data: {
         status: 'open',
